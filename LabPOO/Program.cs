@@ -15,14 +15,15 @@ namespace LabPOO
         public static List<Product> cart;
         public static List<Product> market;
 
-        public event bigSister BigCheck;
+        public static event bigSister BigCheck;
+        
 
         static void Main(string[] args)
         {
             
             cart = new List<Product>();
             market = new List<Product>();
-            //BigCheck += new bigSister(List<Product> cart);
+            BigCheck += new bigSister(onBigCheck);
 
             SupplyStore();
 
@@ -66,18 +67,13 @@ namespace LabPOO
             }
         }
 
-        protected void onBigCheck(List<Product> cart3)
+        protected static void onBigCheck(List<Product> cart3)
         {
             BigCheck.Invoke(cart3);
             int can = cart3.Count();
             cart3.RemoveAt(can - 1);
         }
         
-        public static void BigsisCheck(List<Product> cart2)
-        {
-            int can = cart2.Count();
-            cart2.RemoveAt(can - 1);
-        }
 
         public static void Revisar(int answer, List<Product> cart1)
         {
@@ -86,17 +82,20 @@ namespace LabPOO
             {
                 case 1:
                     {
-                        BigsisCheck(cart1);
+                        int indice = cart1.Count();
+                        cart1.RemoveAt(indice - 1); ;
                         break; 
                     }
                 case 3:
                     {
-                        BigsisCheck(cart1);
+                        int indice = cart1.Count();
+                        cart1.RemoveAt(indice - 1); ;
                         break;
                     }
                 case 5:
                     {
-                        BigsisCheck(cart1);
+                        int indice = cart1.Count();
+                        cart1.RemoveAt(indice - 1); ;
                         break;
                     }
                 case 7:
